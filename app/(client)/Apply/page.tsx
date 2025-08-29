@@ -28,7 +28,36 @@ const ApplyForm = () => {
     }
   }, [searchParams]);
 
-  const indianStates = ["Uttar Pradesh", "Delhi", "Maharashtra", "Punjab"]; // shorten for demo
+const indianStates = [
+  "Andhra Pradesh",
+  "Arunachal Pradesh",
+  "Assam",
+  "Bihar",
+  "Chhattisgarh",
+  "Goa",
+  "Gujarat",
+  "Haryana",
+  "Himachal Pradesh",
+  "Jharkhand",
+  "Karnataka",
+  "Kerala",
+  "Madhya Pradesh",
+  "Maharashtra",
+  "Manipur",
+  "Meghalaya",
+  "Mizoram",
+  "Nagaland",
+  "Odisha",
+  "Punjab",
+  "Rajasthan",
+  "Sikkim",
+  "Tamil Nadu",
+  "Telangana",
+  "Tripura",
+  "Uttar Pradesh",
+  "Uttarakhand",
+  "West Bengal"
+];
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -77,7 +106,7 @@ const ApplyForm = () => {
           ))}
         </select>
 
-        <input type="text" value={course} readOnly className="w-full px-4 py-2 border font-bold rounded bg-gray-100 text-gray-600 cursor-not-allowed"/>
+        <input type="text" onChange={handleChange}  value={course} readOnly className="w-full px-4 py-2 border font-bold rounded bg-gray-100 text-gray-600 cursor-not-allowed"/>
 
         <Button type="submit" className="w-full">Submit</Button>
       </form>
