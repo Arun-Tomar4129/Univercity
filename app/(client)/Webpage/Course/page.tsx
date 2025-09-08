@@ -105,9 +105,9 @@ const CourseCard = ({ course }: { course: Course }) => (
     <h2 className="text-xl font-bold text-indigo-700 mb-2">
       {course.title}
     </h2>
-    <p>💸 <strong>Fee:</strong> {course.fee}</p>
-    <p>📅 <strong>Duration:</strong> {course.duration}</p>
-    <p>📄 <strong>Paper Fee:</strong> {course.paperFee}</p>
+    <p> <strong>Fee:</strong> {course.fee}</p>
+    <p><strong>Duration:</strong> {course.duration}</p>
+    <p><strong>Paper Fee:</strong> {course.paperFee}</p>
     <Link  href={`/Apply?course=${encodeURIComponent(course.title)}`}>
       <Button className="mt-4 w-full">Apply</Button>
     </Link>
@@ -123,13 +123,13 @@ const Page = () => {
       className="p-6 bg-gradient-to-br from-white to-indigo-100 min-h-screen"
     >
       <h1 className="text-4xl font-extrabold text-center text-indigo-800 mb-12">
-        🎓 Explore Our Programs
+         Explore Our Programs
       </h1>
 
       {/* Computer Science Programs */}
       <section className="mb-16">
         <h2 className="text-3xl font-semibold text-indigo-700 mb-6">
-          💻 Computer Science Degrees
+           Computer Science Degrees
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {courses.map((course, index) => (
@@ -141,7 +141,7 @@ const Page = () => {
       {/* Online Courses */}
       <section>
         <h2 className="text-3xl font-semibold text-purple-700 mb-6">
-          🌐 Online Certification Programs
+           Online Certification Programs
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {onlineCourses.map((course, index) => (

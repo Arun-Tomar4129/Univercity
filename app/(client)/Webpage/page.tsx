@@ -1,39 +1,48 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
-import { Facebook, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 
 const Page = () => {
-  // link of socail media 
-  const Social = [
-    {
-      name: "YouTube",
-      link: "https://www.youtube.com/yourchannel",
-      icon: "youtube.png",
-    },
-    {
-      name: "Instagram",
-      link: "https://www.instagram.com/yourprofile",
-      icon: "instagram.png",
-    },
-    {
-      name: "Facebook",
-      link: "https://www.facebook.com/yourprofile",
-      icon: "facebook.png",
-    },
-    {
-      name: "LinkedIn",
-      link: "https://www.linkedin.com/in/yourprofile",
-      icon: "linkdin.png",
-    },
+  // university ads images
+  const uniImages = [
+    "/webpage1.jpg",
+    "/webpage2.jpg",
+    "/webpage3.jpg",
+    "/webpage4.jpg",
+    "/webpage5.jpg",
+    "/webpage1.jpg",
+    "/webpage2.jpg",
+    "/webpage3.jpg",
+    "/webpage4.jpg",
   ];
+
+  const [current, setCurrent] = useState(0);
+
+  // auto change every 3s
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % uniImages.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [uniImages.length]);
+
+  const [open, setOpen] = useState(false);
+
+  const Social = [
+    { name: "YouTube", link: "https://youtube.com", icon: "/youtube.png" },
+    { name: "Instagram", link: "https://instagram.com", icon: "/instagram.png" },
+    { name: "Facebook", link: "https://facebook.com", icon: "/facebook.png" },
+    { name: "WhatsApp", link: "https://wa.me/919999999999", icon: "/WhatApp.jpg" },
+    { name: "LinkedIn", link: "https://linkedin.com", icon: "/linkdin.png" },
+  ];
+
   return (
-    <div className="p-4">
-      {/* Main Layout */}
-      <div className="flex flex-col lg:flex-row gap-4 w-full min-h-screen">
+    <div className="p-4 space-y-6">
+      {/* --- Main Top Section --- */}
+      <div className="flex flex-col lg:flex-row gap-6 w-full ">
         {/* Left Image Section */}
         <motion.div
           initial={{ x: -100, opacity: 0 }}
@@ -45,9 +54,8 @@ const Page = () => {
             src="/Image1.jpeg"
             alt="University View"
             fill
-            priority // ✅ Fix: improve LCP
+            priority
             className="rounded-lg object-cover"
-            sizes="(max-width: 768px) 100vw, 60vw"
           />
         </motion.div>
 
@@ -58,18 +66,17 @@ const Page = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="lg:w-[40%] w-full flex flex-col gap-4"
         >
-          <div className="w-full border-2 rounded-lg overflow-hidden relative h-[250px]">
+          <div className="w-full rounded-lg overflow-hidden relative h-[250px]">
             <Image
               src="/Image2.jpeg"
               alt="Another View"
               fill
               className="object-cover"
-              sizes="(max-width: 768px) 100vw, 40vw"
             />
           </div>
 
           <div className="bg-white p-4 rounded-lg shadow-md">
-            <p className="text-gray-700 text-base">
+            <p className="text-gray-700 text-base leading-relaxed">
               This university is ranked among the top 8 in India and number 1 in
               Uttar Pradesh. It offers world-class education, research
               opportunities, and modern infrastructure. With a focus on
@@ -80,38 +87,110 @@ const Page = () => {
         </motion.div>
       </div>
 
-      {/* Fixed WhatsApp Icon */}
-      <Link
-        href="https://wa.me/919999999999"
-        target="_blank"
-        className="fixed bottom-4 right-4 bg-green-500 p-3 rounded-full shadow-lg z-50 hover:scale-105 transition-transform size-[70px] flex items-center justify-center animate-bounce"
+      {/* --- Teacher + University Ads Section --- */}
+      <div className="flex flex-col md:flex-row justify-between items-stretch gap-6 w-full">
+        {/* Teacher Vacancy Ads */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="flex-1 bg-gradient-to-r from-green-200 to-green-400 rounded-2xl shadow-lg flex flex-col items-center justify-center p-6 text-center"
+        >
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+            Teacher Vacancy
+          </h2>
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.8, type: "spring" }}
+            className="w-full max-w-[250px] mb-4"
+          >
+            <Image
+              src="/Teacher.jpg"
+              alt="Teacher Vacancy"
+              width={250}
+              height={200}
+              className="rounded-xl object-cover shadow-md"
+            />
+          </motion.div>
+          <Link
+            href="/TeacherApply"
+            className="bg-green-600 text-white px-6 py-2 rounded-lg shadow hover:scale-105 transition-transform font-medium"
+          >
+            Apply Now
+          </Link>
+        </motion.div>
+
+        {/* University Ads Slideshow */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex-1 bg-white rounded-2xl shadow-lg overflow-hidden relative flex items-center justify-center h-[250px] md:h-[400px]"
+        >
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={current}
+              initial={{ opacity: 0, scale: 1.05 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.8 }}
+              className="absolute inset-0"
+            >
+              <Image
+                src={uniImages[current]}
+                alt={`University Ad ${current + 1}`}
+                fill
+                className="object-cover rounded-2xl"
+                priority
+              />
+            </motion.div>
+          </AnimatePresence>
+        </motion.div>
+      </div>
+
+      {/* --- Floating User Icon --- */}
+      <button
+        onClick={() => setOpen(!open)}
+        className="fixed bottom-4 right-4 bg-blue-200 rounded-full shadow-lg z-50 hover:scale-105 transition-transform size-[70px] flex items-center justify-center animate-bounce"
       >
         <Image
-          src="/WhatApp.jpg"
-          alt="WhatsApp Icon"
+          src="/User.jpg"
+          alt="User Icon"
           width={70}
           height={70}
-          priority // ✅ Fix LCP issue
+          priority
           className="rounded-full object-cover"
         />
-      </Link>
-      {/* this contect box by flex */}
-      <div className="w-[50px] h-[200px] bg-gray-300 fixed left-0 top-1/2 -translate-y-1/2 z-20 rounded-r-3xl flex items-center justify-around flex-col p-2 shadow-lg">
-        {Social.map((item, index) => (
-          <a
-            key={index}
-            href={item.link}
-            target="_blank"
-            rel="noopener noreferrer"
+      </button>
+
+      {/* --- Social Bar (slide-in) --- */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ x: -200, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: -200, opacity: 0 }}
+            transition={{ type: "spring", stiffness: 100 }}
+            className="w-[60px] h-[260px] bg-gray-100 fixed left-0 top-1/2 -translate-y-1/2 z-40 rounded-r-3xl flex items-center justify-around flex-col p-3 shadow-xl"
           >
-            <img
-              src={item.icon}
-              alt={item.name}
-              className="w-8 cursor-pointer hover:scale-110 transition"
-            />
-          </a>
-        ))}
-      </div>
+            {Social.map((item, index) => (
+              <a
+                key={index}
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src={item.icon}
+                  alt={item.name}
+                  className="w-8 cursor-pointer hover:scale-110 transition"
+                />
+              </a>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
