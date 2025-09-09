@@ -14,7 +14,7 @@ const TeacherApply = () => {
     phone: "",
     whatsapp: "",
     email: "",
-     Address: "",
+    Address: "",
     qualification: "",
     experience: "None",
     subject: "",
@@ -58,11 +58,10 @@ const TeacherApply = () => {
     doc.text(`Phone: ${formData.phone}`, 20, 70);
     doc.text(`WhatsApp: ${formData.whatsapp}`, 20, 80);
     doc.text(`Email: ${formData.email}`, 20, 90);
-     doc.text(`Address: ${formData.Address}`, 20, 90);
+    doc.text(`Address: ${formData.Address}`, 20, 90);
     doc.text(`Qualification: ${formData.qualification}`, 20, 100);
     doc.text(`Experience: ${formData.experience}`, 20, 110);
     doc.text(`Subject: ${formData.subject}`, 20, 120);
-
 
     doc.setTextColor(0, 0, 255);
     doc.textWithLink("Visit College Portal", 20, 150, {
@@ -128,7 +127,7 @@ const TeacherApply = () => {
                   className="w-full border rounded-lg px-3 py-2"
                   placeholder="Enter email"
                 />
-                 <input
+                <input
                   type="text"
                   name="Address"
                   value={formData.Address}
@@ -164,7 +163,6 @@ const TeacherApply = () => {
                   className="w-full border rounded-lg px-3 py-2"
                   placeholder="Enter subject"
                 />
-               
 
                 <div className="flex justify-center">
                   <button
@@ -219,7 +217,6 @@ const TeacherApply = () => {
                 <p>
                   <b>Subject:</b> {formData.subject}
                 </p>
-               
               </div>
 
               <div
