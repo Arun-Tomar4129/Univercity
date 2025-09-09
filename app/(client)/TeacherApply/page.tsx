@@ -14,6 +14,7 @@ const TeacherApply = () => {
     phone: "",
     whatsapp: "",
     email: "",
+     Address: "",
     qualification: "",
     experience: "None",
     subject: "",
@@ -42,7 +43,11 @@ const TeacherApply = () => {
 
     doc.setTextColor(255, 0, 0);
     doc.setFontSize(12);
-    doc.text("⚠ Download this letter for college entry and job submission", 20, 30);
+    doc.text(
+      "⚠ Download this letter for college entry and job submission",
+      20,
+      30
+    );
 
     doc.setTextColor(0, 0, 0);
     doc.setFontSize(14);
@@ -53,10 +58,11 @@ const TeacherApply = () => {
     doc.text(`Phone: ${formData.phone}`, 20, 70);
     doc.text(`WhatsApp: ${formData.whatsapp}`, 20, 80);
     doc.text(`Email: ${formData.email}`, 20, 90);
+     doc.text(`Address: ${formData.Address}`, 20, 90);
     doc.text(`Qualification: ${formData.qualification}`, 20, 100);
     doc.text(`Experience: ${formData.experience}`, 20, 110);
     doc.text(`Subject: ${formData.subject}`, 20, 120);
-    doc.text(`Masters In: ${formData.master}`, 20, 130);
+
 
     doc.setTextColor(0, 0, 255);
     doc.textWithLink("Visit College Portal", 20, 150, {
@@ -122,6 +128,14 @@ const TeacherApply = () => {
                   className="w-full border rounded-lg px-3 py-2"
                   placeholder="Enter email"
                 />
+                 <input
+                  type="text"
+                  name="Address"
+                  value={formData.Address}
+                  onChange={handleChange}
+                  className="w-full border rounded-lg px-3 py-2"
+                  placeholder="Enter Address"
+                />
                 <input
                   type="text"
                   name="qualification"
@@ -150,14 +164,7 @@ const TeacherApply = () => {
                   className="w-full border rounded-lg px-3 py-2"
                   placeholder="Enter subject"
                 />
-                <input
-                  type="text"
-                  name="master"
-                  value={formData.master}
-                  onChange={handleChange}
-                  className="w-full border rounded-lg px-3 py-2"
-                  placeholder="Enter Masters subject"
-                />
+               
 
                 <div className="flex justify-center">
                   <button
@@ -188,17 +195,39 @@ const TeacherApply = () => {
               </p>
 
               <div className="bg-gray-50 p-4 rounded-lg border space-y-2">
-                <p><b>Name:</b> {formData.name}</p>
-                <p><b>Phone:</b> {formData.phone}</p>
-                <p><b>WhatsApp:</b> {formData.whatsapp}</p>
-                <p><b>Email:</b> {formData.email}</p>
-                <p><b>Qualification:</b> {formData.qualification}</p>
-                <p><b>Experience:</b> {formData.experience}</p>
-                <p><b>Subject:</b> {formData.subject}</p>
-                <p><b>Masters:</b> {formData.master}</p>
+                <p>
+                  <b>Name:</b> {formData.name}
+                </p>
+                <p>
+                  <b>Phone:</b> {formData.phone}
+                </p>
+                <p>
+                  <b>WhatsApp:</b> {formData.whatsapp}
+                </p>
+                <p>
+                  <b>Email:</b> {formData.email}
+                </p>
+                <p>
+                  <b>Address:</b> {formData.Address}
+                </p>
+                <p>
+                  <b>Qualification:</b> {formData.qualification}
+                </p>
+                <p>
+                  <b>Experience:</b> {formData.experience}
+                </p>
+                <p>
+                  <b>Subject:</b> {formData.subject}
+                </p>
+               
               </div>
 
-              <div className="flex justify-between mt-6">
+              <div
+                className="
+    flex flex-col gap-3 mt-6
+    sm:flex-row sm:justify-between sm:gap-0
+  "
+              >
                 <button
                   onClick={() => setStep("form")}
                   className="bg-gray-400 text-white px-4 py-2 rounded-lg shadow hover:bg-gray-500 transition"

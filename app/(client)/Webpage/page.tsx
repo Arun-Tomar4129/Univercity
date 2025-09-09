@@ -6,6 +6,35 @@ import Link from "next/link";
 import Image from "next/image";
 
 const Page = () => {
+   const [isPaused, setIsPaused] = useState(false);
+  const [speed, setSpeed] = useState(40);
+
+  // Detect mobile screen and set faster speed
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setSpeed(15); // faster on mobile
+      } else {
+        setSpeed(40); // slower on desktop
+      }
+    };
+
+    handleResize(); // run on load
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  const paragraphs = [
+    "RadheShyam University is ranked among the top institutions in India for innovation and research.",
+    "The university provides state-of-the-art labs, smart classrooms, and modern learning facilities.",
+    "With a strong focus on practical learning, students gain industry-relevant knowledge and skills.",
+    "RadheShyam University hosts regular workshops, hackathons, and global seminars.",
+    "Our faculty members are renowned scholars and industry leaders with years of expertise.",
+    "The university encourages innovation, entrepreneurship, and startup incubation.",
+    "We provide international exchange programs with leading global universities.",
+    "RadheShyam University fosters cultural diversity and holistic development.",
+    "Our alumni network spans across leading companies and research institutions worldwide.",
+    "With strong placement support, we ensure students are career-ready upon graduation.",
+  ];
   // university ads images
   const uniImages = [
     "/webpage1.jpg",
@@ -25,7 +54,7 @@ const Page = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % uniImages.length);
-    }, 3000);
+    }, 2000);
     return () => clearInterval(timer);
   }, [uniImages.length]);
 
@@ -33,9 +62,17 @@ const Page = () => {
 
   const Social = [
     { name: "YouTube", link: "https://youtube.com", icon: "/youtube.png" },
-    { name: "Instagram", link: "https://instagram.com", icon: "/instagram.png" },
+    {
+      name: "Instagram",
+      link: "https://instagram.com",
+      icon: "/instagram.png",
+    },
     { name: "Facebook", link: "https://facebook.com", icon: "/facebook.png" },
-    { name: "WhatsApp", link: "https://wa.me/919999999999", icon: "/WhatApp.jpg" },
+    {
+      name: "WhatsApp",
+      link: "https://wa.me/919999999999",
+      icon: "/WhatApp.jpg",
+    },
     { name: "LinkedIn", link: "https://linkedin.com", icon: "/linkdin.png" },
   ];
 
@@ -191,6 +228,43 @@ const Page = () => {
           </motion.div>
         )}
       </AnimatePresence>
+      {/* Top Line */}
+      <hr className="h-2 bg-gray-200 border-0 rounded-full shadow-inner my-6" />
+
+      <div
+        className="relative w-full bg-white overflow-hidden py-6"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
+        {/* Scrolling Section */}
+        <motion.div
+          className="flex gap-6 whitespace-nowrap"
+          animate={{ x: isPaused ? "0%" : ["0%", "-100%"] }}
+          transition={{
+            repeat: isPaused ? 0 : Infinity,
+            duration: speed,
+            ease: "linear"
+          }}
+        >
+          {[...paragraphs, ...paragraphs].map((text, i) => (
+            <div
+              key={i}
+              className="
+                min-w-[250px] sm:min-w-[300px] lg:min-w-[350px] 
+                max-w-[90%] sm:max-w-[400px] 
+                px-4 py-6 bg-indigo-50 rounded-xl shadow-md 
+                text-gray-800 text-center 
+                whitespace-normal break-words
+              "
+            >
+              {text}
+            </div>
+          ))}
+        </motion.div>
+      </div>
+
+      {/* Bottom Line */}
+      <hr className="h-2 bg-gray-200 border-0 rounded-full shadow-inner my-6" />
     </div>
   );
 };
