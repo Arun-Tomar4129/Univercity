@@ -1,64 +1,64 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { LogIn } from "lucide-react";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
-const Page = () => {
+const IntroPage = () => {
+  const router = useRouter();
+
+  // Auto redirect after 3 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      router.push("/Webpage");
+    }, 4000);
+    return () => clearTimeout(timer);
+  }, [router]);
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="min-h-screen flex flex-col items-center justify-center px-6 bg-gradient-to-r from-indigo-100 to-white"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 1 }}
+      className="min-h-screen flex flex-col items-center justify-center px-6 bg-gradient-to-r from-indigo-600 via-indigo-400 to-indigo-200"
     >
-      {/* University Logo */}
-      <div className="mb-6">
-        <motion.div
-          initial={{ scale: 0.8 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 0.5 }}
-          className="w-[200px] h-[200px] rounded-full border-4 border-indigo-500 overflow-hidden shadow-lg"
-        >
-          <img
-            src="/logoUnivercity.jpeg" // Make sure it's in public folder
-            alt="Radhe Shyam University"
-            className="w-full h-full object-cover"
-          />
-        </motion.div>
-      </div>
+      {/* Logo Animation */}
+      <motion.div
+        initial={{ scale: 0, rotate: -180 }}
+        animate={{ scale: 1, rotate: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        className="w-[180px] h-[180px] rounded-full border-4 border-white overflow-hidden shadow-2xl mb-6"
+      >
+        <img
+          src="/logoUnivercity.jpeg" // keep in public folder
+          alt="Radhe Shyam University"
+          className="w-full h-full object-cover"
+        />
+      </motion.div>
 
-      {/* Heading */}
-      <h1 className="text-3xl sm:text-4xl font-bold text-indigo-700 mb-4 text-center">
+      {/* University Name */}
+      <motion.h1
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 1, duration: 1 }}
+        className="text-3xl sm:text-5xl font-extrabold text-white drop-shadow-lg text-center"
+      >
         Radhe Shyam University
-      </h1>
+      </motion.h1>
 
-      {/* Navigation Button */}
-      <div className="flex gap-4 mb-6">
-        <Button asChild>
-          <Link href="/Webpage" className="flex items-center gap-2">
-            Explore Website <LogIn />
-          </Link>
-        </Button>
-      </div>
-
-      {/* Paragraph */}
-      <p className="max-w-xl text-center text-gray-700 text-lg leading-relaxed">
-        Welcome to{" "}
-        <span className="font-semibold text-indigo-600">
-          Radhe Shyam University
-        </span>{" "}
-        — founded by visionary <strong>Arun Tomar</strong> in 2030. This
-        institution redefines education through immersive learning, real-world
-        projects, hands-on practicals, and AI-integrated environments. Students
-        not only gain top-tier knowledge in tech, science, and innovation, but
-        also experience healthy food, digital wellness, and leadership training
-        — all supported by the Indian government.
-      </p>
-     
+      {/* Tagline */}
+      <motion.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2, duration: 1 }}
+        className="mt-4 text-lg sm:text-xl text-white/90 text-center max-w-xl leading-relaxed"
+      >
+        Innovating education with{" "}
+        <span className="font-bold text-yellow-300">AI, Practical Learning</span>{" "}
+        & Leadership — shaping the leaders of tomorrow.
+      </motion.p>
     </motion.div>
   );
 };
 
-export default Page;
+export default IntroPage;

@@ -274,7 +274,7 @@ ${studentData.name}
             />
           </motion.div>
           <p className="text-center text-lg font-medium text-gray-800 mt-4">
-            🎉 Thank you for applying to
+            Thank you for applying to
             <span className="text-indigo-600 font-semibold"> {course}</span>!
             <br />
             Your application has been successfully submitted. Please download
