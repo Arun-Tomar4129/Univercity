@@ -71,7 +71,7 @@ const Page = () => {
       className="p-6 bg-gradient-to-br from-white to-indigo-100 min-h-screen"
     >
       {/* Hero Section */}
-      <div className="text-center mb-12">
+      <div className="text-center mb-12 ">
         <h1 className="text-4xl font-extrabold text-indigo-800 mb-4">
           Explore Our Programs
         </h1>
@@ -81,15 +81,25 @@ const Page = () => {
         </p>
       </div>
 
+   
       {/* Tab Buttons */}
-      <div className="flex justify-center gap-6 mb-10">
-        <Button onClick={() => setTab("degree")} variant={tab === "degree" ? "default" : "outline"}>
-          Computer Science Degrees
-        </Button>
-        <Button onClick={() => setTab("online")} variant={tab === "online" ? "default" : "outline"}>
-          Online Certifications
-        </Button>
-      </div>
+<div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 mb-10">
+  <Button
+    onClick={() => setTab("degree")}
+    variant={tab === "degree" ? "default" : "outline"}
+    className="w-full sm:w-auto"
+  >
+    Computer Science Degrees
+  </Button>
+  <Button
+    onClick={() => setTab("online")}
+    variant={tab === "online" ? "default" : "outline"}
+    className="w-full sm:w-auto"
+  >
+    Online Certifications
+  </Button>
+</div>
+
 
       {/* Courses Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">

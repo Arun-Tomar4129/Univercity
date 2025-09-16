@@ -158,24 +158,26 @@ const PlacementProcess = () => {
   ];
 
   return (
-    <div className="mt-16">
-      <h2 className="text-2xl font-semibold text-indigo-700 mb-6 text-center">📌 Placement Process</h2>
-      <div className="flex flex-col md:flex-row justify-center items-start gap-6 ">
-        {steps.map((s, i) => (
-          <motion.div
-            key={i}
-            whileHover={{ scale: 1.05 }}
-            className="bg-gradient-to-r from-indigo-50 to-white shadow-md p-6 rounded-xl border border-indigo-100 flex-1 w-[400px] h-[130px]"
-          >
-            <h3 className="font-bold text-indigo-700">{s.step}</h3>
-            <p className="text-gray-600">{s.desc}</p>
-          </motion.div>
-        ))}
-      </div>
+  <div className="mt-16 px-4">
+    <h2 className="text-2xl font-semibold text-indigo-700 mb-6 text-center">
+      📌 Placement Process
+    </h2>
+    <div className="flex flex-col md:flex-row justify-center items-stretch gap-6">
+      {steps.map((s, i) => (
+        <motion.div
+          key={i}
+          whileHover={{ scale: 1.05 }}
+          className="bg-gradient-to-r from-indigo-50 to-white shadow-md p-6 rounded-xl border border-indigo-100 flex-1 
+                     w-full sm:w-[300px] md:w-[350px] lg:w-[400px] min-h-[130px]"
+        >
+          <h3 className="font-bold text-indigo-700">{s.step}</h3>
+          <p className="text-gray-600">{s.desc}</p>
+        </motion.div>
+      ))}
     </div>
-  );
-};
-
+  </div>
+);
+}
 const CTASection = () => (
   <div className="mt-16 bg-gradient-to-r from-indigo-600 to-blue-500 text-white rounded-xl p-10 text-center shadow-lg">
     <h2 className="text-2xl md:text-3xl font-bold mb-4">Join Radhe Shyam University 🚀</h2>
