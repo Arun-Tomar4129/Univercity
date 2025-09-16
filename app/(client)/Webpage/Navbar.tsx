@@ -22,7 +22,7 @@ const Navbar = () => {
 
   useEffect(() => {
     setIsOpen(false); // Close mobile menu on route change
-    setMounted(true); // Hydration fix
+    setMounted(true);
   }, [pathname]);
 
   if (!mounted) return null;
@@ -35,9 +35,9 @@ const Navbar = () => {
       className="w-full fixed top-0 z-50 bg-gradient-to-r from-indigo-600 via-blue-500 to-indigo-600 text-white shadow-lg backdrop-blur-md"
     >
       <div className="flex justify-between items-center px-4 sm:px-8 py-3 max-w-[1400px] mx-auto">
-        {/* Logo and Name */}
+        {/* Logo + Name */}
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 relative">
+          <div className="w-10 h-10 sm:w-12 sm:h-12 relative">
             <Image
               src="/logoUnivercity.jpeg"
               alt="University Logo"
@@ -47,7 +47,7 @@ const Navbar = () => {
               sizes="48px"
             />
           </div>
-          <h1 className="text-lg sm:text-xl md:text-2xl font-bold tracking-wide">
+          <h1 className="text-base sm:text-lg md:text-2xl font-bold tracking-wide whitespace-nowrap">
             Radhe Shyam University
           </h1>
         </div>
@@ -56,6 +56,8 @@ const Navbar = () => {
         <div className="md:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle Menu"
+            role="button"
             className="focus:outline-none"
           >
             {isOpen ? <X size={28} /> : <Menu size={28} />}
@@ -74,21 +76,24 @@ const Navbar = () => {
                 {link.label}
               </Link>
             ) : (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`relative px-3 py-2 transition duration-300 ${
-                  pathname === link.href ? "text-yellow-300" : "hover:text-yellow-200"
-                }`}
-              >
-                {link.label}
+              <div key={link.href} className="relative group">
+                <Link
+                  href={link.href}
+                  className={`px-3 py-2 transition duration-300 ${
+                    pathname === link.href
+                      ? "text-yellow-300 font-semibold"
+                      : "hover:text-yellow-200"
+                  }`}
+                >
+                  {link.label}
+                </Link>
                 {/* Underline Animation */}
                 <span
-                  className={`absolute left-0 -bottom-1 h-[2px] w-full transform scale-x-0 bg-yellow-300 transition-transform duration-300 ${
-                    pathname === link.href ? "scale-x-100" : "group-hover:scale-x-100"
+                  className={`absolute left-0 -bottom-1 h-[2px] w-full transform scale-x-0 bg-yellow-300 transition-transform duration-300 group-hover:scale-x-100 ${
+                    pathname === link.href ? "scale-x-100" : ""
                   }`}
                 />
-              </Link>
+              </div>
             )
           )}
         </div>
@@ -102,7 +107,7 @@ const Navbar = () => {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-white text-gray-800 shadow-inner flex flex-col gap-3 px-6 py-4"
+            className="md:hidden bg-gradient-to-b from-white to-indigo-50 text-gray-800 shadow-inner flex flex-col gap-3 px-6 py-4"
           >
             {navLinks.map((link) =>
               link.isButton ? (

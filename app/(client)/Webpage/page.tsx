@@ -6,7 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 const Page = () => {
-   const [isPaused, setIsPaused] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
   const [speed, setSpeed] = useState(40);
 
   // Detect mobile screen and set faster speed
@@ -78,6 +78,41 @@ const Page = () => {
 
   return (
     <div className="p-4 space-y-6">
+      {/* Hero Section */}
+<section className="relative w-full  h-[40vh] sm:h-[50vh] md:h-[40vh] lg:h-[40vh]  flex items-center justify-center text-center bg-gradient-to-br from-indigo-700 via-blue-600 to-indigo-900 text-white overflow-hidden">
+  {/* Dark overlay for readability */}
+  <div className="absolute inset-0 bg-black/30 z-0" />
+
+  <motion.div
+    initial={{ opacity: 0, y: 40 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8 }}
+    className="z-10 px-4 sm:px-6"
+  >
+    <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-lg leading-tight">
+      Welcome to <br className="sm:hidden" /> Radhe Shyam University
+    </h1>
+    <p className="text-base sm:text-lg md:text-xl mb-6 max-w-2xl mx-auto leading-relaxed">
+      Empowering students with <span className="font-semibold text-yellow-300">innovation</span>, 
+      <span className="font-semibold text-yellow-300"> research</span>, and world-class education.
+    </p>
+
+    {/* Buttons */}
+    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+      <Link href="/Webpage/Course">
+        <button className="bg-yellow-400 text-indigo-900 px-6 py-3 rounded-lg font-semibold shadow-md hover:scale-105 transition-transform w-full sm:w-auto">
+          Explore Courses
+        </button>
+      </Link>
+      {/* <Link href="/Apply">
+        <button className="bg-white text-indigo-700 px-6 py-3 rounded-lg font-semibold shadow-md hover:scale-105 transition-transform w-full sm:w-auto">
+          Apply Now
+        </button>
+      </Link> */}
+    </div>
+  </motion.div>
+</section>
+
       {/* --- Main Top Section --- */}
       <div className="flex flex-col lg:flex-row gap-6 w-full ">
         {/* Left Image Section */}
@@ -243,7 +278,7 @@ const Page = () => {
           transition={{
             repeat: isPaused ? 0 : Infinity,
             duration: speed,
-            ease: "linear"
+            ease: "linear",
           }}
         >
           {[...paragraphs, ...paragraphs].map((text, i) => (
