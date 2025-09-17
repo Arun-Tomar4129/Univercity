@@ -17,11 +17,16 @@ const Navbar = () => {
     { href: "/Webpage/Course", label: "Courses" },
     { href: "/Webpage/Placement", label: "Placement" },
     { href: "/Webpage/About", label: "About" },
-    { href: "/", label: "Login", isButton: true },
+    {
+      href: "https://login-potral.vercel.app/",
+      label: "Login",
+      isButton: true,
+    },
   ];
 
+  // Close mobile menu on route change
   useEffect(() => {
-    setIsOpen(false); // Close mobile menu on route change
+    setIsOpen(false);
     setMounted(true);
   }, [pathname]);
 
@@ -29,15 +34,15 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      initial={{ y: -40, opacity: 0 }}
+      initial={{ y: -50, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="w-full fixed top-0 z-50 bg-gradient-to-r from-indigo-600 via-blue-500 to-indigo-600 text-white shadow-lg backdrop-blur-md"
+      className="fixed top-0 w-full z-50 bg-gradient-to-r from-indigo-600 via-blue-500 to-indigo-600 text-white shadow-lg backdrop-blur-md"
     >
       <div className="flex justify-between items-center px-4 sm:px-8 py-3 max-w-[1400px] mx-auto">
         {/* Logo + Name */}
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 sm:w-12 sm:h-12 relative">
+          <div className="w-10 h-10 sm:w-12 sm:h-12 relative flex-shrink-0">
             <Image
               src="/logoUnivercity.jpeg"
               alt="University Logo"
@@ -47,18 +52,17 @@ const Navbar = () => {
               sizes="48px"
             />
           </div>
-          <h1 className="text-base sm:text-lg md:text-2xl font-bold tracking-wide whitespace-nowrap">
+          <h1 className="text-sm sm:text-lg md:text-2xl font-bold tracking-wide whitespace-nowrap">
             Radhe Shyam University
           </h1>
         </div>
 
         {/* Hamburger (Mobile) */}
-        <div className="md:hidden">
+        <div className="md:hidden flex items-center">
           <button
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle Menu"
-            role="button"
-            className="focus:outline-none"
+            className="focus:outline-none p-1"
           >
             {isOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
@@ -87,7 +91,6 @@ const Navbar = () => {
                 >
                   {link.label}
                 </Link>
-                {/* Underline Animation */}
                 <span
                   className={`absolute left-0 -bottom-1 h-[2px] w-full transform scale-x-0 bg-yellow-300 transition-transform duration-300 group-hover:scale-x-100 ${
                     pathname === link.href ? "scale-x-100" : ""
@@ -107,7 +110,7 @@ const Navbar = () => {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-gradient-to-b from-white to-indigo-50 text-gray-800 shadow-inner flex flex-col gap-3 px-6 py-4"
+            className="md:hidden bg-white text-gray-800 shadow-inner flex flex-col gap-3 px-4 sm:px-6 py-4"
           >
             {navLinks.map((link) =>
               link.isButton ? (
@@ -122,7 +125,7 @@ const Navbar = () => {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-3 py-2 rounded transition duration-200 ${
+                  className={`px-3 py-2 rounded transition duration-200 text-center ${
                     pathname === link.href
                       ? "bg-indigo-100 text-indigo-700 font-semibold shadow"
                       : "hover:text-indigo-600"
