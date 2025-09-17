@@ -28,25 +28,25 @@ const highlights = [
 
 const topStudents: Student[] = [
   {
-    name: "Aarav Mehta",
+    name: "Arun Tomar",
     company: "Google India",
     package: "₹48 LPA",
     branch: "B.Tech CSE",
-    image: "/students/aarav.jpg",
+    image: "/Arun.jpg",
   },
   {
-    name: "Priya Sharma",
+    name: "Shivam Thankur",
     company: "Microsoft",
     package: "₹42 LPA",
     branch: "B.Tech IT",
-    image: "/students/priya.jpg",
+    image: "/Shivam.png",
   },
   {
-    name: "Rahul Verma",
+    name: "Udit ",
     company: "Amazon India",
     package: "₹40 LPA",
     branch: "B.Tech AI/ML",
-    image: "/students/rahul.jpg",
+    image: "/udit.jpg",
   },
 ];
 
@@ -110,21 +110,33 @@ const PlacementStats = () => (
 
 const TopStudents = () => (
   <div className="mt-12">
-    <h2 className="text-2xl font-semibold text-indigo-700 mb-6 text-center">🏆 Top Placement Students</h2>
+    <h2 className="text-2xl font-semibold text-indigo-700 mb-6 text-center">
+      Top Placement Students
+    </h2>
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
       {topStudents.map((s, i) => (
         <motion.div
           key={i}
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.3 }}
-          className="bg-white shadow-lg rounded-2xl overflow-hidden border border-indigo-100"
+          className="relative h-80 bg-gray-200 shadow-lg rounded-2xl overflow-hidden border border-indigo-100"
         >
-          <img src={s.image} alt={s.name} className="w-full h-40 object-cover" />
-          <div className="p-4 text-center">
-            <h3 className="text-lg font-bold text-indigo-700">{s.name}</h3>
-            <p className="text-gray-600">{s.branch}</p>
-            <p className="text-gray-600">{s.company}</p>
-            <p className="text-green-600 font-semibold">{s.package}</p>
+          {/* Background Image */}
+          <img
+            src={s.image}
+            alt={s.name}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+
+          {/* Overlay for readability */}
+          <div className="absolute inset-0 bg-opacity-40"></div>
+
+          {/* Text Content */}
+          <div className="absolute bottom-0 w-full p-4 text-center text-white">
+            <h3 className="text-lg font-bold">{s.name}</h3>
+            <p className="text-sm">{s.branch}</p>
+            <p className="text-sm">{s.company}</p>
+            <p className="text-black font-semibold">{s.package}</p>
           </div>
         </motion.div>
       ))}
@@ -132,9 +144,10 @@ const TopStudents = () => (
   </div>
 );
 
+
 const RecruiterLogos = () => (
   <div className="mt-12">
-    <h2 className="text-2xl font-semibold text-indigo-700 mb-6 text-center">🤝 Our Recruiters</h2>
+    <h2 className="text-2xl font-semibold text-indigo-700 mb-6 text-center"> Our Recruiters</h2>
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 items-center">
       {recruiters.map((c, i) => (
         <motion.div
@@ -160,7 +173,7 @@ const PlacementProcess = () => {
   return (
   <div className="mt-16 px-4">
     <h2 className="text-2xl font-semibold text-indigo-700 mb-6 text-center">
-      📌 Placement Process
+       Placement Process
     </h2>
     <div className="flex flex-col md:flex-row justify-center items-stretch gap-6">
       {steps.map((s, i) => (
@@ -180,7 +193,7 @@ const PlacementProcess = () => {
 }
 const CTASection = () => (
   <div className="mt-16 bg-gradient-to-r from-indigo-600 to-blue-500 text-white rounded-xl p-10 text-center shadow-lg">
-    <h2 className="text-2xl md:text-3xl font-bold mb-4">Join Radhe Shyam University 🚀</h2>
+    <h2 className="text-2xl md:text-3xl font-bold mb-4">Join Radhe Shyam University </h2>
     <p className="mb-6 text-indigo-100">Start your journey with top placements, global recruiters, and industry-ready training.</p>
     <div className="flex justify-center gap-4">
       <button className="bg-white text-indigo-700 font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-gray-100">

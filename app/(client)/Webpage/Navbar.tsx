@@ -24,7 +24,6 @@ const Navbar = () => {
     },
   ];
 
-  // Close mobile menu on route change
   useEffect(() => {
     setIsOpen(false);
     setMounted(true);
@@ -39,9 +38,9 @@ const Navbar = () => {
       transition={{ duration: 0.5 }}
       className="fixed top-0 w-full z-50 bg-gradient-to-r from-indigo-600 via-blue-500 to-indigo-600 text-white shadow-lg backdrop-blur-md"
     >
-      <div className="flex justify-between items-center px-4 sm:px-8 py-3 max-w-[1400px] mx-auto">
+      <div className="flex justify-between items-center py-3 max-w-[1400px] w-full mx-auto">
         {/* Logo + Name */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 ml-[1px]">
           <div className="w-10 h-10 sm:w-12 sm:h-12 relative flex-shrink-0">
             <Image
               src="/logoUnivercity.jpeg"
@@ -58,7 +57,7 @@ const Navbar = () => {
         </div>
 
         {/* Hamburger (Mobile) */}
-        <div className="md:hidden flex items-center">
+        <div className="flex min-[1001px]:hidden items-center mr-[1px]">
           <button
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle Menu"
@@ -69,7 +68,7 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-6 font-medium">
+        <div className="hidden min-[1001px]:flex items-center gap-6 font-medium mr-[1px]">
           {navLinks.map((link) =>
             link.isButton ? (
               <Link
@@ -109,8 +108,8 @@ const Navbar = () => {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden bg-white text-gray-800 shadow-inner flex flex-col gap-3 px-4 sm:px-6 py-4"
+            transition={{ duration: 0.2 }}
+            className="min-[1001px]:hidden bg-white text-gray-800 shadow-inner flex flex-col gap-3 px-4 sm:px-6 py-4"
           >
             {navLinks.map((link) =>
               link.isButton ? (
