@@ -106,17 +106,21 @@ const Page: React.FC = () => {
       <section className="p-8 md:p-12 bg-white">
         <h2 className="text-2xl font-bold text-indigo-700 text-center mb-6">Our Achievements</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-          <motion.div whileHover={{ scale: 1.05 }} className="p-6 bg-indigo-50 rounded-lg shadow">
+          <motion.div whileHover={{ scale: 1.05 }} className="p-6 bg-indigo-50 rounded-lg shadow"
+            style={{backgroundImage:"url('https://i.pinimg.com/736x/b5/e0/56/b5e05696c3315abf904a1dd1d198114f.jpg')"}}
+          >
             <h3 className="text-4xl font-extrabold text-indigo-600">95%</h3>
-            <p className="text-gray-600 mt-2">Placement Rate</p>
+            <p className="text-black font-extrabold mt-2">Placement Rate</p>
           </motion.div>
-          <motion.div whileHover={{ scale: 1.05 }} className="p-6 bg-indigo-50 rounded-lg shadow">
+          <motion.div whileHover={{ scale: 1.05 }} className="p-6 bg-indigo-50 rounded-lg shadow bg-cover" 
+          style={{backgroundImage:"url('https://i.pinimg.com/1200x/de/28/05/de2805abf4d492e3c88ea2b7eb9cb3d5.jpg')"}}>
             <h3 className="text-4xl font-extrabold text-indigo-600">200+</h3>
-            <p className="text-gray-600 mt-2">Experienced Faculty</p>
+            <p className="text-black font-extrabold mt-2">Experienced Faculty</p>
           </motion.div>
-          <motion.div whileHover={{ scale: 1.05 }} className="p-6 bg-indigo-50 rounded-lg shadow">
+          <motion.div whileHover={{ scale: 1.05 }} className="p-6 bg-indigo-50 rounded-lg shadow"
+          style={{backgroundImage:"url('https://i.pinimg.com/1200x/f8/42/c8/f842c89a5ad31fee8ef67fad4f0553e2.jpg')"}}>
             <h3 className="text-4xl font-extrabold text-indigo-600">5000+</h3>
-            <p className="text-gray-600 mt-2">Students Enrolled</p>
+            <p className="text-black font-extrabold mt-2">Students Enrolled</p>
           </motion.div>
         </div>
       </section>

@@ -51,19 +51,23 @@ const topStudents: Student[] = [
 ];
 
 const recruiters: Company[] = [
-  { name: "Google", logo: "/companies/google.png" },
-  { name: "Microsoft", logo: "/companies/microsoft.png" },
-  { name: "Amazon", logo: "/companies/amazon.png" },
-  { name: "Infosys", logo: "/companies/infosys.png" },
-  { name: "TCS", logo: "/companies/tcs.png" },
-  { name: "Wipro", logo: "/companies/wipro.png" },
-  { name: "Accenture", logo: "/companies/accenture.png" },
-  { name: "Meta", logo: "/companies/meta.png" },
+  { name: "Google", logo: "https://i.pinimg.com/1200x/28/71/e3/2871e3e71c3344351d1c9b62fa4baec4.jpg" },
+  { name: "Microsoft", logo: "https://i.pinimg.com/736x/cf/5f/d9/cf5fd9eb5ea343a1201776b26095db37.jpg" },
+  { name: "Amazon", logo: "https://i.pinimg.com/736x/d1/e9/35/d1e9352526c9fd7ae68e651af76f09ca.jpg" },
+  { name: "Infosys", logo: "/infosys.jpg" },
+  { name: "TCS", logo: "https://i.pinimg.com/736x/53/b0/e6/53b0e6c332aa9cb17300f14c2c053a95.jpg" },
+  { name: "Wipro", logo: "https://i.pinimg.com/1200x/71/2c/66/712c660619fcfe31b2154a1cb041d8cb.jpg" },
+  { name: "Accenture", logo: "https://i.pinimg.com/1200x/aa/10/0f/aa100f5af627232b89311fab7545ab26.jpg" },
+  { name: "Meta", logo: "https://i.pinimg.com/736x/80/14/ca/8014ca9f0a2e6a57afa2734b7f11453f.jpg" },
 ];
 
 // ---------- Components ----------
 const Hero = () => (
-  <div className="relative bg-gradient-to-r from-indigo-600 to-blue-500 text-white py-16 px-6 text-center rounded-xl shadow-lg">
+  <div className="relative bg-gradient-to-r from-indigo-600 to-blue-500 text-white py-16 px-6 text-center rounded-xl bg-cover bg-center w-full shadow-lg"
+  style={{
+      backgroundImage: "url('https://i.pinimg.com/1200x/16/f3/b0/16f3b0bc85829c9151e1cc6e9fba90b3.jpg')",
+    }}
+>
     <motion.h1
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}

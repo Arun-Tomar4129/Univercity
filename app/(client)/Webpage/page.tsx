@@ -61,19 +61,19 @@ const Page = () => {
   const [open, setOpen] = useState(false);
 
   const Social = [
-    { name: "YouTube", link: "https://youtube.com", icon: "/youtube.png" },
+    { name: "YouTube", link: "https://youtube.com", icon: "https://i.pinimg.com/1200x/5c/d7/3d/5cd73dcdb77181f1c193346ab404120c.jpg" },
     {
       name: "Instagram",
       link: "https://instagram.com",
-      icon: "/instagram.png",
+      icon: "https://i.pinimg.com/736x/d8/12/03/d81203a4741e6f1354124823f3976ef1.jpg",
     },
-    { name: "Facebook", link: "https://facebook.com", icon: "/facebook.png" },
+    { name: "Facebook", link: "https://facebook.com", icon: "https://i.pinimg.com/736x/db/19/33/db19332a23a44f772c5a1855a8aabf70.jpg" },
     {
       name: "WhatsApp",
       link: "https://wa.me/919999999999",
       icon: "/WhatApp.jpg",
     },
-    { name: "LinkedIn", link: "https://linkedin.com", icon: "/linkdin.png" },
+    { name: "LinkedIn", link: "https://linkedin.com", icon: "https://i.pinimg.com/736x/ad/a1/7c/ada17c578743c123f075eddc7ea0d449.jpg" },
   ];
 
   return (
@@ -81,13 +81,15 @@ const Page = () => {
       {/* Hero Section */}
 <section className="relative w-full  h-[40vh] sm:h-[50vh] md:h-[40vh] lg:h-[40vh]  flex items-center justify-center text-center bg-gradient-to-br from-indigo-700 via-blue-600 to-indigo-900 text-white overflow-hidden">
   {/* Dark overlay for readability */}
-  <div className="absolute inset-0 bg-black/30 z-0" />
+  <div className="absolute inset-0 bg-black/30 z-0  bg-cover bg-center"
+  style={{backgroundImage:"url('https://i.pinimg.com/1200x/12/6d/6a/126d6a772d8c617371646cea80851342.jpg')"}} />
 
   <motion.div
     initial={{ opacity: 0, y: 40 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.8 }}
-    className="z-10 px-4 sm:px-6"
+    className="z-10 px-4 sm:px-6 "
+   
   >
     <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-lg leading-tight">
       Welcome to <br className="sm:hidden" /> Radhe Shyam University
@@ -160,13 +162,16 @@ const Page = () => {
       </div>
 
       {/* --- Teacher + University Ads Section --- */}
-      <div className="flex flex-col md:flex-row justify-between items-stretch gap-6 w-full">
+      <div className="flex flex-col md:flex-row justify-between items-stretch gap-6 w-full "
+      
+      >
         {/* Teacher Vacancy Ads */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="flex-1 bg-gradient-to-r from-green-200 to-green-400 rounded-2xl shadow-lg flex flex-col items-center justify-center p-6 text-center"
+          className="flex-1 bg-gradient-to-r from-green-200 to-green-400 rounded-2xl shadow-lg flex flex-col items-center justify-center p-6 text-center bg-cover"
+          style={{backgroundImage:"url('https://i.pinimg.com/736x/fe/0b/97/fe0b97b4ea38a9bbe71aefec5d387832.jpg')"}}
         >
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
             Teacher Vacancy
