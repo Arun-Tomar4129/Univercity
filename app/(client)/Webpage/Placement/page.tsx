@@ -54,7 +54,7 @@ const recruiters: Company[] = [
   { name: "Google", logo: "https://i.pinimg.com/1200x/28/71/e3/2871e3e71c3344351d1c9b62fa4baec4.jpg" },
   { name: "Microsoft", logo: "https://i.pinimg.com/736x/cf/5f/d9/cf5fd9eb5ea343a1201776b26095db37.jpg" },
   { name: "Amazon", logo: "https://i.pinimg.com/736x/d1/e9/35/d1e9352526c9fd7ae68e651af76f09ca.jpg" },
-  { name: "Infosys", logo: "/infosys.jpg" },
+  { name: "Infosys", logo: "https://i.pinimg.com/1200x/39/87/49/398749d9a5520aa1be5fe3783f941df6.jpg" },
   { name: "TCS", logo: "https://i.pinimg.com/736x/53/b0/e6/53b0e6c332aa9cb17300f14c2c053a95.jpg" },
   { name: "Wipro", logo: "https://i.pinimg.com/1200x/71/2c/66/712c660619fcfe31b2154a1cb041d8cb.jpg" },
   { name: "Accenture", logo: "https://i.pinimg.com/1200x/aa/10/0f/aa100f5af627232b89311fab7545ab26.jpg" },
