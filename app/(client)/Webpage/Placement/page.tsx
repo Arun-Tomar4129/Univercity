@@ -30,44 +30,70 @@ const topStudents: Student[] = [
   {
     name: "Arun Tomar",
     company: "Google India",
-    package: "₹48 LPA",
+    package: "₹28 LPA",
     branch: "B.Tech CSE",
     image: "/Arun.jpg",
   },
   {
     name: "Shivam Thankur",
     company: "Microsoft",
-    package: "₹42 LPA",
+    package: "₹27 LPA",
     branch: "B.Tech IT",
     image: "/Shivam.png",
   },
   {
     name: "Udit ",
     company: "Amazon India",
-    package: "₹40 LPA",
+    package: "₹25 LPA",
     branch: "B.Tech AI/ML",
     image: "/udit.jpg",
   },
 ];
 
 const recruiters: Company[] = [
-  { name: "Google", logo: "https://i.pinimg.com/1200x/28/71/e3/2871e3e71c3344351d1c9b62fa4baec4.jpg" },
-  { name: "Microsoft", logo: "https://i.pinimg.com/736x/cf/5f/d9/cf5fd9eb5ea343a1201776b26095db37.jpg" },
-  { name: "Amazon", logo: "https://i.pinimg.com/736x/d1/e9/35/d1e9352526c9fd7ae68e651af76f09ca.jpg" },
-  { name: "Infosys", logo: "https://i.pinimg.com/1200x/39/87/49/398749d9a5520aa1be5fe3783f941df6.jpg" },
-  { name: "TCS", logo: "https://i.pinimg.com/736x/53/b0/e6/53b0e6c332aa9cb17300f14c2c053a95.jpg" },
-  { name: "Wipro", logo: "https://i.pinimg.com/1200x/71/2c/66/712c660619fcfe31b2154a1cb041d8cb.jpg" },
-  { name: "Accenture", logo: "https://i.pinimg.com/1200x/aa/10/0f/aa100f5af627232b89311fab7545ab26.jpg" },
-  { name: "Meta", logo: "https://i.pinimg.com/736x/80/14/ca/8014ca9f0a2e6a57afa2734b7f11453f.jpg" },
+  {
+    name: "Google",
+    logo: "https://i.pinimg.com/1200x/28/71/e3/2871e3e71c3344351d1c9b62fa4baec4.jpg",
+  },
+  {
+    name: "Microsoft",
+    logo: "https://i.pinimg.com/736x/cf/5f/d9/cf5fd9eb5ea343a1201776b26095db37.jpg",
+  },
+  {
+    name: "Amazon",
+    logo: "https://i.pinimg.com/736x/d1/e9/35/d1e9352526c9fd7ae68e651af76f09ca.jpg",
+  },
+  {
+    name: "Infosys",
+    logo: "https://i.pinimg.com/1200x/39/87/49/398749d9a5520aa1be5fe3783f941df6.jpg",
+  },
+  {
+    name: "TCS",
+    logo: "https://i.pinimg.com/736x/53/b0/e6/53b0e6c332aa9cb17300f14c2c053a95.jpg",
+  },
+  {
+    name: "Wipro",
+    logo: "https://i.pinimg.com/1200x/71/2c/66/712c660619fcfe31b2154a1cb041d8cb.jpg",
+  },
+  {
+    name: "Accenture",
+    logo: "https://i.pinimg.com/1200x/aa/10/0f/aa100f5af627232b89311fab7545ab26.jpg",
+  },
+  {
+    name: "Meta",
+    logo: "https://i.pinimg.com/736x/80/14/ca/8014ca9f0a2e6a57afa2734b7f11453f.jpg",
+  },
 ];
 
 // ---------- Components ----------
 const Hero = () => (
-  <div className="relative bg-gradient-to-r from-indigo-600 to-blue-500 text-white py-16 px-6 text-center rounded-xl bg-cover bg-center w-full shadow-lg"
-  style={{
-      backgroundImage: "url('https://i.pinimg.com/1200x/16/f3/b0/16f3b0bc85829c9151e1cc6e9fba90b3.jpg')",
+  <div
+    className="relative bg-gradient-to-r from-indigo-600 to-blue-500 text-white py-16 px-6 text-center rounded-xl bg-cover bg-center w-full shadow-lg"
+    style={{
+      backgroundImage:
+        "url('https://i.pinimg.com/1200x/16/f3/b0/16f3b0bc85829c9151e1cc6e9fba90b3.jpg')",
     }}
->
+  >
     <motion.h1
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -77,8 +103,8 @@ const Hero = () => (
       Placement Overview – Radhe Shyam University
     </motion.h1>
     <p className="max-w-2xl mx-auto text-lg text-indigo-100">
-      Empowering students with world-class training and opportunities.  
-      With 95% placement success, our graduates shine in top companies worldwide.
+      Empowering students with world-class training and opportunities. With 95%
+      placement success, our graduates shine in top companies worldwide.
     </p>
   </div>
 );
@@ -101,13 +127,21 @@ const Highlights = () => (
 const PlacementStats = () => (
   <Card className="shadow-xl mt-10 border border-indigo-200">
     <CardHeader>
-      <CardTitle className="text-indigo-600 text-xl">📊 Placement Stats</CardTitle>
+      <CardTitle className="text-indigo-600 text-xl">
+        📊 Placement Stats
+      </CardTitle>
     </CardHeader>
     <CardContent className="space-y-4">
-      <p className="text-gray-700">Placement Rate: <strong>95%</strong></p>
+      <p className="text-gray-700">
+        Placement Rate: <strong>95%</strong>
+      </p>
       <Progress value={95} className="h-2 bg-gray-200" />
-      <p className="text-gray-700">Average Package: <strong>₹6.5 LPA</strong></p>
-      <p className="text-gray-700">Highest Package: <strong>₹48 LPA</strong></p>
+      <p className="text-gray-700">
+        Average Package: <strong>₹6.5 LPA</strong>
+      </p>
+      <p className="text-gray-700">
+        Highest Package: <strong>₹48 LPA</strong>
+      </p>
     </CardContent>
   </Card>
 );
@@ -148,10 +182,12 @@ const TopStudents = () => (
   </div>
 );
 
-
 const RecruiterLogos = () => (
   <div className="mt-12">
-    <h2 className="text-2xl font-semibold text-indigo-700 mb-6 text-center"> Our Recruiters</h2>
+    <h2 className="text-2xl font-semibold text-indigo-700 mb-6 text-center">
+      {" "}
+      Our Recruiters
+    </h2>
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 items-center">
       {recruiters.map((c, i) => (
         <motion.div
@@ -168,37 +204,51 @@ const RecruiterLogos = () => (
 
 const PlacementProcess = () => {
   const steps = [
-    { step: "📚 Training & Workshops", desc: "Industry-ready skills through expert sessions." },
-    { step: "📝 Mock Interviews", desc: "Preparation with real-world interview experience." },
-    { step: "🏢 Company Drives", desc: "Top recruiters conduct campus interviews." },
+    {
+      step: "📚 Training & Workshops",
+      desc: "Industry-ready skills through expert sessions.",
+    },
+    {
+      step: "📝 Mock Interviews",
+      desc: "Preparation with real-world interview experience.",
+    },
+    {
+      step: "🏢 Company Drives",
+      desc: "Top recruiters conduct campus interviews.",
+    },
     { step: "🎉 Final Selection", desc: "Students land dream jobs worldwide." },
   ];
 
   return (
-  <div className="mt-16 px-4">
-    <h2 className="text-2xl font-semibold text-indigo-700 mb-6 text-center">
-       Placement Process
-    </h2>
-    <div className="flex flex-col md:flex-row justify-center items-stretch gap-6">
-      {steps.map((s, i) => (
-        <motion.div
-          key={i}
-          whileHover={{ scale: 1.05 }}
-          className="bg-gradient-to-r from-indigo-50 to-white shadow-md p-6 rounded-xl border border-indigo-100 flex-1 
+    <div className="mt-16 px-4">
+      <h2 className="text-2xl font-semibold text-indigo-700 mb-6 text-center">
+        Placement Process
+      </h2>
+      <div className="flex flex-col md:flex-row justify-center items-stretch gap-6">
+        {steps.map((s, i) => (
+          <motion.div
+            key={i}
+            whileHover={{ scale: 1.05 }}
+            className="bg-gradient-to-r from-indigo-50 to-white shadow-md p-6 rounded-xl border border-indigo-100 flex-1 
                      w-full sm:w-[300px] md:w-[350px] lg:w-[400px] min-h-[130px]"
-        >
-          <h3 className="font-bold text-indigo-700">{s.step}</h3>
-          <p className="text-gray-600">{s.desc}</p>
-        </motion.div>
-      ))}
+          >
+            <h3 className="font-bold text-indigo-700">{s.step}</h3>
+            <p className="text-gray-600">{s.desc}</p>
+          </motion.div>
+        ))}
+      </div>
     </div>
-  </div>
-);
-}
+  );
+};
 const CTASection = () => (
   <div className="mt-16 bg-gradient-to-r from-indigo-600 to-blue-500 text-white rounded-xl p-10 text-center shadow-lg">
-    <h2 className="text-2xl md:text-3xl font-bold mb-4">Join Radhe Shyam University </h2>
-    <p className="mb-6 text-indigo-100">Start your journey with top placements, global recruiters, and industry-ready training.</p>
+    <h2 className="text-2xl md:text-3xl font-bold mb-4">
+      Join Radhe Shyam University{" "}
+    </h2>
+    <p className="mb-6 text-indigo-100">
+      Start your journey with top placements, global recruiters, and
+      industry-ready training.
+    </p>
     <div className="flex justify-center gap-4">
       <button className="bg-white text-indigo-700 font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-gray-100">
         Apply Now
